@@ -1,8 +1,13 @@
 <html>
   <body>
+    <h1>Add Food Item</h1>
     <form method="POST" action="/">
-      Name: <input type="text" name="name">
+      <input type="text" name="item">
       <input type="submit" value="Add">
     </form>
+    <h1>Database</h1>
+    {% for item in items %}
+      <p>{{item.item}}</p>
+    {% endfor %}
   </body>
 </html>
