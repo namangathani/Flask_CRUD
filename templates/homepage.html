@@ -7,7 +7,16 @@
     </form>
     <h1>Database</h1>
     {% for item in items %}
-      <p>{{item.item}}</p>
+        <p>{{item.item}}</p>
+        <form method="POST" action="./update">
+            <input type="hidden" value="{{item.item}}" name="old">
+            <input type="text" value="{{item.item}}" name="new">
+            <input type="submit" value="Update">
+        </form>
+        <form method="POST" action="./delete">
+          <input type="hidden" value="{{item.item}}" name="item">
+          <input type="submit" value="Delete">
+        </form>
     {% endfor %}
   </body>
 </html>
