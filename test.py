@@ -38,5 +38,13 @@ def update():
         db.session.commit()
     return redirect("/")
 
+@app.route("/delete", methods=["POST"])
+def delete():
+    item = request.form.get("item")
+    item = Food.query.filter_by(item=item).first()
+    db.session.delete(item)
+    db.session.commit()
+    return redirect("/")
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
